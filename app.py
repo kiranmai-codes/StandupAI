@@ -125,7 +125,7 @@ with tab1:
 with tab2:
     uploaded_file = st.file_uploader("Upload Jira CSV", type=["csv"])
     if uploaded_file:
-        df = pd.read_csv(uploaded_file)
+        df = pd.read_csv(uploaded_file, on_bad_lines='skip', quotechar='"', encoding='utf-8')
         st.subheader("Tickets")
         st.dataframe(df, use_container_width=True)
 
